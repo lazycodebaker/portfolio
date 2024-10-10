@@ -4,7 +4,7 @@ import { useState } from "react"
 import { color } from "@/constants"
 import { motion } from "framer-motion"
 
-export default function PageAnimation() {
+export default function Loading() {
     const [isVisible, setIsVisible] = useState<boolean>(true)
     return <>
         {isVisible && <motion.div
@@ -20,7 +20,7 @@ export default function PageAnimation() {
             }}
             onAnimationComplete={() => setIsVisible(false)}
             style={{
-                backgroundColor: color.BLACK
+                backgroundColor: color.WHITE
             }}
             className="fixed top-0 left-0 w-screen h-screen">
             <div>
@@ -35,7 +35,10 @@ export default function PageAnimation() {
                             times: [0, 0.3, 0.5, 0.7, 1],
                         },
                     }}
-                    className="h-[2px] bg-gray-500 w-full mt-[2px]" />
+                    style={{
+                        backgroundColor: color.BLACK
+                    }}
+                    className="h-[3px] w-full mt-[3px]" />
                 <motion.div
                     initial={{
                         width: 0,
@@ -53,7 +56,7 @@ export default function PageAnimation() {
                     style={{
                         backgroundColor: color.WHITE
                     }}
-                    className="h-[2px] w-full -mt-[2px]"
+                    className="h-[3px] w-full -mt-[3px]"
                 />
             </div>
         </motion.div>}
